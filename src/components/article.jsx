@@ -1,12 +1,14 @@
 import React from 'react'
 
-function Article({article, isOpen}){
+function Article({article, isOpen, toggleOpen}){
   return (
     <div>
-      <h3>{article.title}</h3>
+      <div>
+        <h3>{article.title}</h3>
+        <button onClick={toggleOpen}>{isOpen ? 'Open' : 'Close'}</button>
+      </div>
       {isOpen && <section> {article.text} </section>}
      </div>
-    
   );
 }
 export default Article;
