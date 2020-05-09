@@ -1,14 +1,20 @@
-import React from 'react'
+import React, {PureComponent} from 'react'
+import { Button } from 'react-bootstrap';
 
-function Article({article, isOpen, toggleOpen}){
-  return (
-    <div>
+class Article extends PureComponent {
+  render(){
+    const { article, isOpen} = this.props;
+    //console.log('Rendered...');
+    return (
       <div>
-        <h3>{article.title}</h3>
-        <button onClick={toggleOpen}>{isOpen ? 'Open' : 'Close'}</button>
-      </div>
-      {isOpen && <section> {article.text} </section>}
-     </div>
-  );
+        <div>
+          <h3>{article.title}</h3>
+          <Button variant="primary" onClick={this.handleBtnClick}>{isOpen ? 'Open' : 'Close'}</Button>
+        </div>
+        {isOpen && <section> {article.text} </section>}
+      </div>)
+  };
+
+  handleBtnClick = () => this.props.toggleOpen(this.props.article.id);
 }
 export default Article;
