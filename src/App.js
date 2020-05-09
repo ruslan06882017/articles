@@ -4,7 +4,7 @@ import articles from './fixtures'
 
 function App() {
   return (
-    <ArticleList articles={articles}/>
+    <ArticleList articles={articles} />
   );
 }
 
