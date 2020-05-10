@@ -13,7 +13,11 @@ class App extends Component {
     return (
       <div>
         <UserForm />
-        <Select options={this.options} value={this.state.openItem} onChange={this.handleSelect} />
+        <Select 
+          options={this.options}
+          value={this.state.openItem}
+          onChange={this.handleSelect}
+        />
         <ArticleList articles={articles} />
       </div>
     )

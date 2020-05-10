@@ -13,15 +13,16 @@ class ArticleList extends React.Component {
 
   get body(){
     const {toggleOpenItem, openItemId, article} = this.props
-    return this.props.articles.map((article) =>
+
+    return this.props.articles.map((article) => (
       <li key={article.id}>
-        <Article   
-          article={article} 
+        <Article
+          article={article}
           isOpen={openItemId === article.id}
           toggleOpen = {toggleOpenItem}
         />
       </li>
-    )}
+    ))}
 
 }
 export default accordion(ArticleList);
