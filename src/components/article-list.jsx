@@ -12,7 +12,7 @@ class ArticleList extends React.Component {
   }
 
   get body(){
-    const {toggleOpenItem, openItemId, article} = this.props
+    const {toggleOpenItem, openItemId} = this.props
 
     return this.props.articles.map((article) => (
       <li key={article.id}>

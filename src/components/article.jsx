@@ -1,23 +1,41 @@
 import React, {PureComponent} from 'react'
 import { Button } from 'react-bootstrap';
+import CommentList from './comments-list'
+
 
 class Article extends PureComponent {
+
   render(){
     const { article, isOpen} = this.props;
+
     return (
       <div>
-        <div>
-          <h3 ref={this.setTitleRef}>{article.title}</h3>
+          <h3> {article.title} 
           <Button
             variant="primary"
-            onClick={this.handleBtnClick}>{isOpen ? 'Open' : 'Close'}
+            onClick={this.handleBtnClick}>{isOpen ? 'Close' : 'Open'}
           </Button>
-        </div>
-        {isOpen && <section> {article.text} </section>}
+          </h3>
+          {this.body}
       </div>
     )
   };
-  //setTitleRef = (ref) => console.log(ref);
+  
   handleBtnClick = () => this.props.toggleOpen(this.props.article.id);
+  get body(){
+    const {isOpen, article} = this.props
+    if (!isOpen) return null
+
+    return (
+      <section>
+        {article.text}
+        
+        <CommentList
+          comments = {article.comments}
+        /> 
+      </section>
+    )
+  }
 }
+
 export default Article;
