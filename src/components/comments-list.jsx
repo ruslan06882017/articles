@@ -4,6 +4,7 @@ import toggleOpen from  '../decorators/toggleOpen'
 
 
 class CommentList extends React.Component {
+  
   render() {
     const {isOpen, toggleOpen} = this.props
     const text = !isOpen ? 'Show comments' : 'Close comments'
@@ -20,7 +21,7 @@ class CommentList extends React.Component {
     const {comments, isOpen} = this.props;
     if (!isOpen) return null
 
-    const body = comments.length ? (
+    const body = (comments && comments.length) ? (
       <ul>
         {comments.map(item => (
           <li key={item.id}>
